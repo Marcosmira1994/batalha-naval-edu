@@ -297,36 +297,51 @@ export default function TelaJogo({
       {mostrarModalFimAntecipado && (
         <div className={styles.overlayFimAntecipado}>
           <div className={styles.modalFimAntecipado}>
-            <div className={styles.faIcone}>⚓</div>
-            <h2 className={styles.faTitulo}>Vitória Antecipada!</h2>
-            <p className={styles.faSubtitulo}>
-              Virada matemática impossível para{' '}
-              <strong>
-                {times[jogo.fimAntecipado.vencedor === 'azul' ? 'vermelho' : 'azul'].nome}
-              </strong>
-            </p>
-
-            <div className={styles.faPlacar}>
-              <div className={styles.faTime}>
-                <span className={styles.faTimeLabel}>{times.azul.nome}</span>
-                <span className={`${styles.faTimePontos} ${styles.faAzul}`}>
-                  {times.azul.pontos}
-                </span>
-              </div>
-              <span className={styles.faVs}>×</span>
-              <div className={styles.faTime}>
-                <span className={styles.faTimeLabel}>{times.vermelho.nome}</span>
-                <span className={`${styles.faTimePontos} ${styles.faVermelho}`}>
-                  {times.vermelho.pontos}
-                </span>
-              </div>
-            </div>
-
-            <p className={styles.faExplicacao}>
-              Máx. possível para{' '}
-              {times[jogo.fimAntecipado.vencedor === 'azul' ? 'vermelho' : 'azul'].nome}:{' '}
-              <strong>{jogo.fimAntecipado.maxPossivel} pts</strong>
-            </p>
+            {jogo.fimAntecipado?.vencedor === 'empate' ? (
+              <>
+                <div className={styles.faIcone}>🤝</div>
+                <h2 className={styles.faTitulo}>Empate!</h2>
+                <p className={styles.faSubtitulo}>Os dois times terminaram com a mesma pontuação.</p>
+                <div className={styles.faPlacar}>
+                  <div className={styles.faTime}>
+                    <span className={styles.faTimeLabel}>{times.azul.nome}</span>
+                    <span className={`${styles.faTimePontos} ${styles.faAzul}`}>{jogo.fimAntecipado.pontosAzul} pts</span>
+                  </div>
+                  <span className={styles.faVs}>×</span>
+                  <div className={styles.faTime}>
+                    <span className={styles.faTimeLabel}>{times.vermelho.nome}</span>
+                    <span className={`${styles.faTimePontos} ${styles.faVermelho}`}>{jogo.fimAntecipado.pontosVermelho} pts</span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={styles.faIcone}>⚓</div>
+                <h2 className={styles.faTitulo}>Vitória Antecipada!</h2>
+                <p className={styles.faSubtitulo}>
+                  Virada matemática impossível para{' '}
+                  <strong>
+                    {times[jogo.fimAntecipado.vencedor === 'azul' ? 'vermelho' : 'azul'].nome}
+                  </strong>
+                </p>
+                <div className={styles.faPlacar}>
+                  <div className={styles.faTime}>
+                    <span className={styles.faTimeLabel}>{times.azul.nome}</span>
+                    <span className={`${styles.faTimePontos} ${styles.faAzul}`}>{times.azul.pontos}</span>
+                  </div>
+                  <span className={styles.faVs}>×</span>
+                  <div className={styles.faTime}>
+                    <span className={styles.faTimeLabel}>{times.vermelho.nome}</span>
+                    <span className={`${styles.faTimePontos} ${styles.faVermelho}`}>{times.vermelho.pontos}</span>
+                  </div>
+                </div>
+                <p className={styles.faExplicacao}>
+                  Máx. possível para{' '}
+                  {times[jogo.fimAntecipado.vencedor === 'azul' ? 'vermelho' : 'azul'].nome}:{' '}
+                  <strong>{jogo.fimAntecipado.maxPossivel} pts</strong>
+                </p>
+              </>
+            )}
 
             <button className={styles.faBtnIr} onClick={onFimAntecipado}>
               Ver resultado completo →

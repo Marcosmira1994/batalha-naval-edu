@@ -48,7 +48,7 @@ export default function TelaFim({ jogo, onJogarNovamente, onNovaConfiguracao }) 
   const fimAntecipado = jogo.fimAntecipado;
   if (fimAntecipado?.fimAntecipado) {
     vencedor = fimAntecipado.vencedor;
-    empate = false;
+    empate = fimAntecipado.vencedor === 'empate';
   }
 
   const naviosAfundados = jogo.naviosVivos.filter(n => n.afundado).length;
@@ -79,7 +79,9 @@ export default function TelaFim({ jogo, onJogarNovamente, onNovaConfiguracao }) 
           )}
           {fimAntecipado?.fimAntecipado && (
             <span className={styles.antecipadoBadge}>
-              ⚡ Vitória antecipada — virada impossível
+              {fimAntecipado.vencedor === 'empate'
+                ? '🤝 Empate — mesma pontuação!'
+                : '⚡ Vitória antecipada — virada impossível'}
             </span>
           )}
         </div>
