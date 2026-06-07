@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: rgba(13, 45, 94, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(45, 125, 210, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.titulo {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 180, 216, 0.6);
+  letter-spacing: 2px;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: #caf0f8;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+.abas {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.aba {
+  flex: 1;
+  padding: 14px 20px;
+  background: rgba(13, 45, 94, 0.5);
+  color: #caf0f8;
+  font-size: 1rem;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid rgba(45, 125, 210, 0.2);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.aba:hover {
+  background: rgba(26, 74, 138, 0.6);
+  transform: none;
+  box-shadow: none;
+}
+
+.abaAtiva {
+  background: rgba(26, 74, 138, 0.9);
+  color: #fff;
+  border-color: rgba(45, 125, 210, 0.5);
+  font-weight: 700;
+}
+
+.check {
+  color: #4ade80;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.badge {
+  background: #00b4d8;
+  color: #0a1628;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.conteudo {
+  flex: 1;
+  background: rgba(13, 45, 94, 0.7);
+  border: 1px solid rgba(45, 125, 210, 0.3);
+  border-radius: 0 0 16px 16px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.footer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.aviso {
+  color: #fbbf24;
+  font-size: 0.9rem;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.btnIniciar {
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #2d7dd2, #00b4d8);
+  color: #fff;
+  border-radius: 12px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);
+}
+
+.btnIniciar:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1a6bb8, #0090b0);
+  box-shadow: 0 6px 25px rgba(0, 180, 216, 0.6);
+}
+
+.btnIniciar:disabled {
+  background: rgba(45, 125, 210, 0.3);
+  box-shadow: none;
+}

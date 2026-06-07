@@ -1,0 +1,319 @@
+.container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ── Painel lateral ── */
+.painel {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.painelTitulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #caf0f8;
+  border-bottom: 2px solid rgba(0, 180, 216, 0.3);
+  padding-bottom: 8px;
+}
+
+.painelDica {
+  font-size: 0.78rem;
+  color: #90b8d8;
+  line-height: 1.4;
+}
+
+.controles {
+  display: flex;
+  gap: 6px;
+}
+
+.btnOrientacao {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.8rem;
+  background: rgba(13, 45, 94, 0.8);
+  color: #90b8d8;
+  border-radius: 8px;
+  border: 1px solid rgba(45, 125, 210, 0.2);
+}
+
+.btnAtivo {
+  background: rgba(0, 180, 216, 0.2);
+  color: #00b4d8;
+  border-color: #00b4d8;
+}
+
+.listaNavios {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grupoNavio {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navioInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.navioEmoji {
+  font-size: 1.4rem;
+}
+
+.navioNome {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.navioTamanho {
+  font-size: 0.7rem;
+  color: #00b4d8;
+  letter-spacing: 1px;
+}
+
+.navioContagem {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: #fbbf24;
+  font-weight: 700;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.navioItem {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px;
+  background: rgba(26, 74, 138, 0.5);
+  border: 2px solid rgba(45, 125, 210, 0.3);
+  border-radius: 8px;
+  cursor: grab;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.navioItem:hover:not(.navioUsado) {
+  border-color: #00b4d8;
+  background: rgba(0, 180, 216, 0.15);
+  transform: translateY(-1px);
+}
+
+.navioItem:active {
+  cursor: grabbing;
+}
+
+.navioUsado {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.navioSvg {
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.usadoTag {
+  position: absolute;
+  right: 8px;
+  font-size: 0.65rem;
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.btnResetar {
+  padding: 10px;
+  background: rgba(230, 57, 70, 0.15);
+  color: #f87171;
+  border-radius: 8px;
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.btnResetar:hover {
+  background: rgba(230, 57, 70, 0.25);
+  transform: none;
+}
+
+.painelSelecionado {
+  background: rgba(0, 180, 216, 0.1);
+  border: 1px solid rgba(0, 180, 216, 0.4);
+  border-radius: 10px;
+  padding: 12px;
+  animation: fadeIn 0.2s ease;
+}
+
+.painelSelecionado p {
+  font-size: 0.85rem;
+  color: #caf0f8;
+  margin-bottom: 8px;
+}
+
+.acoesSelecionado {
+  display: flex;
+  gap: 6px;
+}
+
+.btnAcao {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.8rem;
+  background: rgba(26, 74, 138, 0.6);
+  color: #caf0f8;
+  border-radius: 6px;
+  border: 1px solid rgba(45, 125, 210, 0.3);
+}
+
+.btnRemover {
+  background: rgba(230, 57, 70, 0.2);
+  color: #f87171;
+  border-color: rgba(230, 57, 70, 0.3);
+}
+
+/* ── Grid ── */
+.gridArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.gridWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.gridHeader {
+  display: flex;
+}
+
+.cornerVazio {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.labelColuna {
+  width: 44px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #90b8d8;
+  font-weight: 600;
+}
+
+.gridLinha {
+  display: flex;
+  align-items: center;
+}
+
+.labelLinha {
+  width: 32px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #90b8d8;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.celula {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(45, 125, 210, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(13, 45, 94, 0.6) 0%,
+    rgba(10, 40, 80, 0.7) 100%
+  );
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.celula:hover {
+  background: rgba(0, 180, 216, 0.08);
+}
+
+.celulaOcupada {
+  background: linear-gradient(135deg, rgba(26, 74, 138, 0.8), rgba(45, 125, 210, 0.5));
+  border-color: rgba(0, 180, 216, 0.5);
+}
+
+.hoverValido {
+  background: rgba(74, 222, 128, 0.25) !important;
+  border-color: rgba(74, 222, 128, 0.6) !important;
+}
+
+.hoverInvalido {
+  background: rgba(248, 113, 113, 0.25) !important;
+  border-color: rgba(248, 113, 113, 0.6) !important;
+}
+
+.celulaSelecionada {
+  background: rgba(0, 180, 216, 0.3) !important;
+  border-color: #00b4d8 !important;
+  box-shadow: inset 0 0 8px rgba(0, 180, 216, 0.4);
+}
+
+.navioGridEmoji {
+  font-size: 1.2rem;
+  cursor: grab;
+  z-index: 2;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+
+.navioGridEmoji:active {
+  cursor: grabbing;
+}
+
+.dica {
+  font-size: 0.78rem;
+  color: #90b8d8;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .painel {
+    width: 100%;
+  }
+  .celula {
+    width: 34px;
+    height: 34px;
+  }
+  .labelColuna {
+    width: 34px;
+  }
+}

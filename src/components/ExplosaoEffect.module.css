@@ -1,0 +1,54 @@
+@keyframes flash {
+  0%   { background: white; opacity: 0.95; transform: scale(1.1); }
+  60%  { background: #fff3; opacity: 0.4; }
+  100% { background: transparent; opacity: 0; transform: scale(1); }
+}
+
+@keyframes particula {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  80%  { opacity: 0.6; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+
+@keyframes fumaca {
+  0%   { transform: scale(0.4); opacity: 0.55; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+
+.flash {
+  position: absolute;
+  inset: -4px;
+  border-radius: 4px;
+  opacity: 0;
+  animation: flash 0.35s ease-out forwards;
+}
+
+.particula {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particula 0.75s ease-out forwards;
+}
+
+.fumaca {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(120,120,120,0.5) 0%, rgba(80,80,80,0) 70%);
+  opacity: 0;
+  animation: fumaca 0.9s ease-out forwards;
+}

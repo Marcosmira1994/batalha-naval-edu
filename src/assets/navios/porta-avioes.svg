@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" preserveAspectRatio="none">
+  <path d="M4,26 L2,36 L89,36 L95,26 Z" fill="#1a3356"/>
+  <rect x="2" y="26" width="89" height="2.5" fill="#1e3f6e" opacity="0.7"/>
+  <rect x="1" y="17" width="91" height="11" rx="1" fill="#1e3869"/>
+  <rect x="1" y="17" width="91" height="3" rx="1" fill="#2a4f8a"/>
+  <line x1="4" y1="22.5" x2="86" y2="22.5" stroke="#3a80c0" stroke-width="0.6" stroke-dasharray="8,5" opacity="0.45"/>
+  <rect x="67" y="7" width="16" height="12" rx="2" fill="#142440" stroke="#2560a0" stroke-width="0.7"/>
+  <rect x="69" y="10.5" width="3.5" height="2.5" rx="0.5" fill="#48cae4" opacity="0.75"/>
+  <rect x="74.5" y="10.5" width="3.5" height="2.5" rx="0.5" fill="#48cae4" opacity="0.75"/>
+  <rect x="80" y="10.5" width="3.5" height="2.5" rx="0.5" fill="#48cae4" opacity="0.75"/>
+  <line x1="74" y1="7" x2="74" y2="2" stroke="#2d7dd2" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="69" y1="3" x2="79" y2="3" stroke="#2d7dd2" stroke-width="1" stroke-linecap="round"/>
+  <polygon points="91,17 91,36 97,26" fill="#142440"/>
+  <rect x="0" y="17" width="3" height="19" rx="1" fill="#162d4a"/>
+  <path d="M1,17 L91,17 L97,26 L89,36 L2,36 Z" fill="none" stroke="#2d7dd2" stroke-width="0.8" stroke-linejoin="round" opacity="0.65"/>
+</svg>

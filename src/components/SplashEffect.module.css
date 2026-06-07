@@ -1,0 +1,29 @@
+@keyframes splash-ring {
+  0%   { transform: scale(0.15); opacity: 0.9; }
+  100% { transform: scale(2.6);  opacity: 0; }
+}
+
+.container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+
+.ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid #00bfff;
+  opacity: 0;
+  animation: splash-ring 1.1s ease-out forwards;
+}
+
+.r1 { animation-delay: 0s; }
+.r2 { animation-delay: 0.2s; border-color: #38bdf8; border-width: 2px; }
+.r3 { animation-delay: 0.4s; border-color: #7dd3fc; border-width: 1px; }

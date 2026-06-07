@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" preserveAspectRatio="none">
+  <path d="M6,24 L4,36 L87,36 L93,24 Z" fill="#1a3356"/>
+  <rect x="4" y="24" width="86" height="3" fill="#1e3f6e" opacity="0.8"/>
+  <rect x="7" y="16" width="79" height="10" rx="1" fill="#1e3869"/>
+  <rect x="7" y="16" width="79" height="2.5" fill="#2a4f8a"/>
+  <rect x="12" y="10" width="20" height="8" rx="2" fill="#142440" stroke="#2560a0" stroke-width="0.7"/>
+  <rect x="28" y="12" width="11" height="1.8" rx="0.8" fill="#0d1e35"/>
+  <rect x="28" y="15" width="11" height="1.8" rx="0.8" fill="#0d1e35"/>
+  <rect x="54" y="10" width="20" height="8" rx="2" fill="#142440" stroke="#2560a0" stroke-width="0.7"/>
+  <rect x="69" y="12" width="11" height="1.8" rx="0.8" fill="#0d1e35"/>
+  <rect x="69" y="15" width="11" height="1.8" rx="0.8" fill="#0d1e35"/>
+  <rect x="37" y="6" width="14" height="12" rx="1.5" fill="#142440" stroke="#2560a0" stroke-width="0.7"/>
+  <rect x="39" y="9.5" width="3.5" height="2.5" rx="0.5" fill="#48cae4" opacity="0.75"/>
+  <rect x="45" y="9.5" width="3.5" height="2.5" rx="0.5" fill="#48cae4" opacity="0.75"/>
+  <line x1="44" y1="6" x2="44" y2="2" stroke="#2d7dd2" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="86,16 86,36 94,26" fill="#142440"/>
+  <path d="M7,16 Q4,26 4,36" fill="none" stroke="#1e3356" stroke-width="1"/>
+  <path d="M4,16 L86,16 L94,26 L87,36 L4,36 Z" fill="none" stroke="#2d7dd2" stroke-width="0.8" stroke-linejoin="round" opacity="0.65"/>
+</svg>

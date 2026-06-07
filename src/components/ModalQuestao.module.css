@@ -1,0 +1,313 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 25, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(160deg, #0d2d5e, #0a1628);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(45, 125, 210, 0.3);
+  animation: slideIn 0.3s ease;
+  transition: border-color 0.4s;
+  position: relative; /* âncora para confetes e flash */
+}
+
+.modalAcerto {
+  border-color: rgba(74, 222, 128, 0.6);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(74, 222, 128, 0.2);
+}
+
+.modalErro {
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.headerAzul {
+  background: linear-gradient(135deg, rgba(45, 125, 210, 0.25), transparent);
+}
+
+.headerVermelho {
+  background: linear-gradient(135deg, rgba(230, 57, 70, 0.25), transparent);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeEmoji {
+  font-size: 2rem;
+}
+
+.timeNome {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.disciplina {
+  font-size: 0.75rem;
+  color: #90b8d8;
+  margin-top: 2px;
+  background: rgba(45, 125, 210, 0.2);
+  padding: 2px 8px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.timerCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.5s;
+  flex-shrink: 0;
+}
+
+.timerNumero {
+  font-size: 1.2rem;
+  font-weight: 900;
+  transition: color 0.5s;
+}
+
+/* ── Timer barra ── */
+.timerBarra {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.timerPreenchimento {
+  height: 100%;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Enunciado ── */
+.enunciado {
+  padding: 20px 24px 12px;
+}
+
+.enunciadoLabel {
+  font-size: 0.7rem;
+  color: #90b8d8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.enunciadoTexto {
+  font-size: 1.05rem;
+  color: #e0f0ff;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ── Alternativas ── */
+.alternativas {
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alternativa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(26, 74, 138, 0.3);
+  border: 2px solid rgba(45, 125, 210, 0.2);
+  border-radius: 10px;
+  color: #caf0f8;
+  font-size: 0.95rem;
+  text-align: left;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.alternativa:hover:not(:disabled) {
+  background: rgba(45, 125, 210, 0.25);
+  border-color: rgba(45, 125, 210, 0.6);
+  transform: translateX(4px);
+  box-shadow: none;
+}
+
+.altVF {
+  font-size: 1rem;
+}
+
+.altLetra {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(45, 125, 210, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.altSelecionada {
+  background: rgba(45, 125, 210, 0.4);
+  border-color: #2d7dd2;
+}
+
+.altCorreta {
+  background: rgba(74, 222, 128, 0.2) !important;
+  border-color: #4ade80 !important;
+  color: #4ade80 !important;
+  animation: celebracao 0.5s ease;
+}
+
+.altErrada {
+  background: rgba(248, 113, 113, 0.15) !important;
+  border-color: #f87171 !important;
+  color: #f87171 !important;
+}
+
+/* ── Resultado ── */
+.resultado {
+  margin: 0 24px 16px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: fadeIn 0.3s ease;
+}
+
+.resultado span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.8);
+}
+
+.resultadoAcerto {
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  color: #4ade80;
+}
+
+.resultadoErro {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #f87171;
+}
+
+/* ── Botão fechar ── */
+.btnFechar {
+  width: calc(100% - 48px);
+  margin: 0 24px 24px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.btnFecharAcerto {
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+}
+
+.btnFecharErro {
+  background: linear-gradient(135deg, #374151, #4b5563);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes celebracao {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.03); }
+  75%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+/* ── Shake (resposta errada) ── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  18%       { transform: translateX(-10px); }
+  36%       { transform: translateX(10px); }
+  54%       { transform: translateX(-8px); }
+  72%       { transform: translateX(8px); }
+  88%       { transform: translateX(-4px); }
+}
+
+.shake {
+  animation: shake 0.6s ease forwards !important;
+}
+
+/* ── Flash vermelho de fundo (erro) ── */
+@keyframes flash-erro {
+  0%   { opacity: 0.45; }
+  100% { opacity: 0; }
+}
+
+.flashErro {
+  position: absolute;
+  inset: 0;
+  background: rgba(220, 38, 38, 0.35);
+  pointer-events: none;
+  z-index: 5;
+  animation: flash-erro 0.55s ease-out forwards;
+}
+
+/* ── Confetes (acerto) ── */
+@keyframes confete-cair {
+  0%   { transform: translateY(0)     rotate(0deg);   opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { transform: translateY(340px) rotate(720deg); opacity: 0; }
+}
+
+.confetesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;          /* não empurra conteúdo */
+  overflow: visible;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.confete {
+  position: absolute;
+  animation: confete-cair linear forwards;
+}
