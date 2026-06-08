@@ -5,6 +5,7 @@ import TelaJogo from './components/TelaJogo';
 import TelaFim from './components/TelaFim';
 import TelaLogin from './components/TelaLogin';
 import TelaListas from './components/TelaListas';
+import TelaGerenciarLista from './components/TelaGerenciarLista';
 import { verificarFimAntecipado } from './utils/gameLogic';
 import { supabase } from './lib/supabase';
 
@@ -239,6 +240,7 @@ function reducer(state, action) {
 export default function App() {
   const [state, dispatch] = useReducer(reducer, estadoInicial);
   const [sessao, setSessao] = useState(undefined); // undefined = carregando
+  const [listaGerenciando, setListaGerenciando] = useState(null);
 
   // Verifica sessão inicial e escuta mudanças de auth
   useEffect(() => {
@@ -286,7 +288,7 @@ export default function App() {
         Sair
       </button>
 
-      {state.tela === 'listas' && (
+      {state.tela === 'listas' && !listaGerenciando && (
         <TelaListas
           onSelecionarLista={questoes => {
             dispatch({ type: 'SET_QUESTOES', questoes });
@@ -295,6 +297,14 @@ export default function App() {
           onContinuarSemLista={() =>
             dispatch({ type: 'IR_PARA_CONFIGURACAO' })
           }
+          onGerenciarLista={(lista) => setListaGerenciando(lista)}
+        />
+      )}
+
+      {state.tela === 'listas' && listaGerenciando && (
+        <TelaGerenciarLista
+          lista={listaGerenciando}
+          onVoltar={() => setListaGerenciando(null)}
         />
       )}
 

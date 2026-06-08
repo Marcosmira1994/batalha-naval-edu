@@ -26,7 +26,7 @@ function converterQuestao(q) {
   };
 }
 
-export default function TelaListas({ onSelecionarLista, onContinuarSemLista }) {
+export default function TelaListas({ onSelecionarLista, onContinuarSemLista, onGerenciarLista }) {
   const [listas, setListas]           = useState([]);
   const [carregando, setCarregando]   = useState(true);
   const [erro, setErro]               = useState('');
@@ -211,6 +211,13 @@ export default function TelaListas({ onSelecionarLista, onContinuarSemLista }) {
                   disabled={carregandoId === lista.id}
                 >
                   {carregandoId === lista.id ? 'Carregando...' : '▶ Usar no jogo'}
+                </button>
+                <button
+                  className={styles.btnGerenciar}
+                  onClick={() => onGerenciarLista(lista)}
+                  disabled={carregandoId === lista.id}
+                >
+                  ✏️ Questões
                 </button>
                 <button
                   className={styles.btnApagar}

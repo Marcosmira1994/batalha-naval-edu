@@ -339,3 +339,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+.btnGerenciar {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #4a90d9;
+  background: transparent;
+  color: #4a90d9;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btnGerenciar:hover {
+  background: #4a90d9;
+  color: white;
+}
