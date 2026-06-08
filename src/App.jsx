@@ -227,6 +227,30 @@ function reducer(state, action) {
     case 'IR_PARA_FIM':
       return { ...state, tela: 'fim' };
 
+    case 'ENCERRAR_PARTIDA': {
+      const { azul, vermelho } = state.jogo.times
+      const vencedor = azul.pontos > vermelho.pontos
+        ? 'azul'
+        : vermelho.pontos > azul.pontos
+        ? 'vermelho'
+        : 'empate'
+      return {
+        ...state,
+        tela: 'fim',
+        jogo: {
+          ...state.jogo,
+          fimAntecipado: {
+            fimAntecipado: true,
+            vencedor,
+            pontosAzul: azul.pontos,
+            pontosVermelho: vermelho.pontos,
+            maxPossivel: 0,
+            encerradoManualmente: true,
+          }
+        }
+      }
+    }
+
     case 'JOGAR_NOVAMENTE':
       return { ...estadoInicial, questoes: state.questoes };
 
@@ -333,6 +357,7 @@ export default function App() {
           onFecharModal={() => dispatch({ type: 'FECHAR_MODAL_QUESTAO' })}
           onLimparAnuncio={() => dispatch({ type: 'LIMPAR_ANUNCIO_AFUNDADO' })}
           onFimAntecipado={() => dispatch({ type: 'IR_PARA_FIM' })}
+          onEncerrarPartida={() => dispatch({ type: 'ENCERRAR_PARTIDA' })}
           todosAfundados={todosAfundados}
         />
       )}

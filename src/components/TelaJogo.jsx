@@ -24,6 +24,7 @@ export default function TelaJogo({
   onFecharModal,
   onLimparAnuncio,
   onFimAntecipado,
+  onEncerrarPartida,
   todosAfundados,
 }) {
   // ── Estado local da sequência de afundamento ──────────────────────────────
@@ -140,6 +141,16 @@ export default function TelaJogo({
       {/* Botão de tela cheia */}
       <button className={styles.btnFullscreen} onClick={toggleFullscreen}>
         {isFullscreen ? '✕ Sair' : '⛶ Tela Cheia'}
+      </button>
+      <button
+        className={styles.btnEncerrar}
+        onClick={() => {
+          if (window.confirm('Encerrar a partida agora? O time com mais pontos será declarado vencedor.')) {
+            onEncerrarPartida()
+          }
+        }}
+      >
+        🏳️ Encerrar Partida
       </button>
       {/* ── Header / Placar ─────────────────────────────────────────────── */}
       <header className={styles.header}>

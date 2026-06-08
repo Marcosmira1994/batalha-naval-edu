@@ -150,6 +150,23 @@
   transform: none;
 }
 
+.btnAleatorio {
+  width: 100%;
+  padding: 10px;
+  background: rgba(45, 125, 210, 0.15);
+  color: #60a5fa;
+  border-radius: 8px;
+  border: 1px solid rgba(45, 125, 210, 0.35);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.btnAleatorio:hover {
+  background: rgba(45, 125, 210, 0.3);
+}
+
 .painelSelecionado {
   background: rgba(0, 180, 216, 0.1);
   border: 1px solid rgba(0, 180, 216, 0.4);

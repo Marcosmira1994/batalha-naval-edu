@@ -489,3 +489,22 @@
   transform: scale(1.06);
   box-shadow: 0 4px 20px rgba(255, 214, 10, 0.35);
 }
+
+.btnEncerrar {
+  position: fixed;
+  top: 16px;
+  right: 160px;
+  z-index: 1000;
+  background: rgba(180,30,30,0.3);
+  border: 1px solid rgba(220,50,50,0.5);
+  color: #ff6b6b;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+.btnEncerrar:hover {
+  background: rgba(180,30,30,0.6);
+}

@@ -168,6 +168,38 @@ export default function GridConfig({ naviosPosicionados, onSetNavios, contagem }
     setSelecionado(null);
   }
 
+  // ─── Posicionamento aleatório ────────────────────────────────────────────
+  function posicionarAleatoriamente() {
+    const novos = [];
+    for (const def of NAVIOS_DISPONIVEIS) {
+      for (let q = 0; q < def.quantidade; q++) {
+        let colocado = false;
+        let tentativas = 0;
+        while (!colocado && tentativas < 200) {
+          tentativas++;
+          const horiz = Math.random() < 0.5;
+          const row = Math.floor(Math.random() * TAMANHO);
+          const col = Math.floor(Math.random() * TAMANHO);
+          const celulas = calcularCelulas(row, col, def.tamanho, horiz);
+          if (validarPosicao(celulas, novos)) {
+            novos.push({
+              uid: gerarUID(),
+              id: def.id,
+              nome: def.nome,
+              emoji: def.emoji,
+              tamanho: def.tamanho,
+              celulas,
+              horizontal: horiz,
+            });
+            colocado = true;
+          }
+        }
+      }
+    }
+    onSetNavios(novos);
+    setSelecionado(null);
+  }
+
   // Calcula status de cada tipo de navio
   const statusNavios = NAVIOS_DISPONIVEIS.map(def => ({
     ...def,
@@ -198,6 +230,10 @@ export default function GridConfig({ naviosPosicionados, onSetNavios, contagem }
             ↕ Vertical
           </button>
         </div>
+
+        <button className={styles.btnAleatorio} onClick={posicionarAleatoriamente}>
+          🎲 Posicionamento Aleatório
+        </button>
 
         <div className={styles.listaNavios}>
           {statusNavios.map(def => (
