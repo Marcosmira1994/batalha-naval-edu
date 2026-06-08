@@ -24,9 +24,11 @@ function todosNaviosPosicionados(naviosPosicionados) {
 export default function TelaConfiguracao({
   naviosPosicionados,
   questoes,
+  listaSelecionada,
   onSetNavios,
   onSetQuestoes,
   onIniciarJogo,
+  onTrocarLista,
 }) {
   const [aba, setAba] = useState('navios'); // 'navios' | 'questoes'
 
@@ -75,10 +77,85 @@ export default function TelaConfiguracao({
           />
         )}
         {aba === 'questoes' && (
-          <FormQuestao
-            questoes={questoes}
-            onSetQuestoes={onSetQuestoes}
-          />
+          <div>
+            {listaSelecionada ? (
+              <div style={{
+                background: 'rgba(74,144,217,0.15)',
+                border: '1px solid #4a90d9',
+                borderRadius: '8px',
+                padding: '12px 16px',
+                marginBottom: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}>
+                <div>
+                  <span style={{ color: '#7fb3d3', fontSize: '12px' }}>
+                    Lista selecionada:
+                  </span>
+                  <strong style={{ color: 'white', marginLeft: '8px' }}>
+                    📚 {listaSelecionada.nome}
+                  </strong>
+                  {listaSelecionada.disciplina && (
+                    <span style={{ color: '#7fb3d3', marginLeft: '8px', fontSize: '13px' }}>
+                      · {listaSelecionada.disciplina}
+                      {listaSelecionada.serie ? ` · ${listaSelecionada.serie}` : ''}
+                    </span>
+                  )}
+                  <span style={{ color: '#4a90d9', marginLeft: '8px', fontSize: '13px' }}>
+                    ({questoes.length} questões)
+                  </span>
+                </div>
+                <button
+                  onClick={onTrocarLista}
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid #4a90d9',
+                    color: '#4a90d9',
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '13px'
+                  }}
+                >
+                  🔄 Trocar lista
+                </button>
+              </div>
+            ) : (
+              <div style={{
+                background: 'rgba(255,165,0,0.1)',
+                border: '1px solid orange',
+                borderRadius: '8px',
+                padding: '12px 16px',
+                marginBottom: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}>
+                <span style={{ color: '#ffa500', fontSize: '13px' }}>
+                  ⚠️ Nenhuma lista selecionada — questões não serão salvas
+                </span>
+                <button
+                  onClick={onTrocarLista}
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid orange',
+                    color: 'orange',
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '13px'
+                  }}
+                >
+                  📚 Selecionar lista
+                </button>
+              </div>
+            )}
+            <FormQuestao
+              questoes={questoes}
+              onSetQuestoes={onSetQuestoes}
+            />
+          </div>
         )}
       </div>
 

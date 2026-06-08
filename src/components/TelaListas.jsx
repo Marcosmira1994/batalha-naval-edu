@@ -96,7 +96,7 @@ export default function TelaListas({ onSelecionarLista, onContinuarSemLista, onG
         setErro(`A lista "${lista.nome}" não tem questões cadastradas ainda.`);
         return;
       }
-      onSelecionarLista(raw.map(converterQuestao));
+      onSelecionarLista(raw.map(converterQuestao), lista);
     } catch (e) {
       setErro('Erro ao carregar questões: ' + e.message);
     } finally {

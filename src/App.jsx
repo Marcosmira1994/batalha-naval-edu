@@ -20,6 +20,7 @@ const estadoInicial = {
   tela: 'listas',
   naviosPosicionados: [],
   questoes: [],
+  listaSelecionada: null,
   jogo: null,
 };
 
@@ -29,7 +30,7 @@ function reducer(state, action) {
       return { ...state, naviosPosicionados: action.navios };
 
     case 'SET_QUESTOES':
-      return { ...state, questoes: action.questoes };
+      return { ...state, questoes: action.questoes, listaSelecionada: action.lista ?? null };
 
     case 'IR_PARA_LISTAS':
       return { ...state, tela: 'listas' };
@@ -290,8 +291,8 @@ export default function App() {
 
       {state.tela === 'listas' && !listaGerenciando && (
         <TelaListas
-          onSelecionarLista={questoes => {
-            dispatch({ type: 'SET_QUESTOES', questoes });
+          onSelecionarLista={(questoes, lista) => {
+            dispatch({ type: 'SET_QUESTOES', questoes, lista });
             dispatch({ type: 'IR_PARA_CONFIGURACAO' });
           }}
           onContinuarSemLista={() =>
@@ -312,11 +313,13 @@ export default function App() {
         <TelaConfiguracao
           naviosPosicionados={state.naviosPosicionados}
           questoes={state.questoes}
+          listaSelecionada={state.listaSelecionada ?? null}
           onSetNavios={navios => dispatch({ type: 'SET_NAVIOS', navios })}
           onSetQuestoes={questoes => dispatch({ type: 'SET_QUESTOES', questoes })}
           onIniciarJogo={naviosPosicionados =>
             dispatch({ type: 'INICIAR_JOGO', naviosPosicionados })
           }
+          onTrocarLista={() => dispatch({ type: 'IR_PARA_LISTAS' })}
         />
       )}
 
