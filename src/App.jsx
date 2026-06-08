@@ -4,6 +4,7 @@ import TelaConfiguracao from './components/TelaConfiguracao';
 import TelaJogo from './components/TelaJogo';
 import TelaFim from './components/TelaFim';
 import TelaLogin from './components/TelaLogin';
+import TelaListas from './components/TelaListas';
 import { verificarFimAntecipado } from './utils/gameLogic';
 import { supabase } from './lib/supabase';
 
@@ -15,7 +16,7 @@ export const NAVIOS_DISPONIVEIS = [
 ];
 
 const estadoInicial = {
-  tela: 'configuracao',
+  tela: 'listas',
   naviosPosicionados: [],
   questoes: [],
   jogo: null,
@@ -28,6 +29,12 @@ function reducer(state, action) {
 
     case 'SET_QUESTOES':
       return { ...state, questoes: action.questoes };
+
+    case 'IR_PARA_LISTAS':
+      return { ...state, tela: 'listas' };
+
+    case 'IR_PARA_CONFIGURACAO':
+      return { ...state, tela: 'configuracao' };
 
     case 'INICIAR_JOGO': {
       const celulasNavios = {};
@@ -278,6 +285,18 @@ export default function App() {
       >
         Sair
       </button>
+
+      {state.tela === 'listas' && (
+        <TelaListas
+          onSelecionarLista={questoes => {
+            dispatch({ type: 'SET_QUESTOES', questoes });
+            dispatch({ type: 'IR_PARA_CONFIGURACAO' });
+          }}
+          onContinuarSemLista={() =>
+            dispatch({ type: 'IR_PARA_CONFIGURACAO' })
+          }
+        />
+      )}
 
       {state.tela === 'configuracao' && (
         <TelaConfiguracao
