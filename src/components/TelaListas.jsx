@@ -69,7 +69,8 @@ export default function TelaListas({ onSelecionarLista, onContinuarSemLista, onG
       setDisciplina('Matemática');
       setMostrarForm(false);
     } catch (e) {
-      setErro('Erro ao criar lista: ' + e.message);
+      console.error('ERRO CRIAR LISTA COMPLETO:', e)
+      setErro('Erro ao criar lista: ' + (e.message || JSON.stringify(e)))
     } finally {
       setSalvando(false);
     }
