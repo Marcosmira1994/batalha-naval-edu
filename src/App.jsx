@@ -367,6 +367,7 @@ export default function App() {
           jogo={state.jogo}
           onJogarNovamente={() => dispatch({ type: 'JOGAR_NOVAMENTE' })}
           onNovaConfiguracao={() => dispatch({ type: 'NOVA_CONFIGURACAO' })}
+          onVoltarInicio={() => dispatch({ type: 'IR_PARA_LISTAS' })}
         />
       )}
     </div>

@@ -25,7 +25,7 @@ function Confetes() {
   );
 }
 
-export default function TelaFim({ jogo, onJogarNovamente, onNovaConfiguracao }) {
+export default function TelaFim({ jogo, onJogarNovamente, onNovaConfiguracao, onVoltarInicio }) {
   const [mostrar, setMostrar] = useState(false);
 
   useEffect(() => {
@@ -138,6 +138,10 @@ export default function TelaFim({ jogo, onJogarNovamente, onNovaConfiguracao }) 
           <button className={styles.btnNovo} onClick={onNovaConfiguracao}>
             🆕 Nova Configuração
             <span className={styles.btnSub}>reinicia tudo do zero</span>
+          </button>
+          <button className={styles.btnInicio} onClick={onVoltarInicio}>
+            🏠 Voltar ao Início
+            <span className={styles.btnSub}>ir para a tela de listas</span>
           </button>
         </div>
       </div>
