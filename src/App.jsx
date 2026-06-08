@@ -1,9 +1,11 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import './App.css';
 import TelaConfiguracao from './components/TelaConfiguracao';
 import TelaJogo from './components/TelaJogo';
 import TelaFim from './components/TelaFim';
+import TelaLogin from './components/TelaLogin';
 import { verificarFimAntecipado } from './utils/gameLogic';
+import { supabase } from './lib/supabase';
 
 export const NAVIOS_DISPONIVEIS = [
   { id: 'porta-avioes', nome: 'Porta-aviões', tamanho: 5, quantidade: 1, emoji: '🛳️' },
@@ -229,6 +231,18 @@ function reducer(state, action) {
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, estadoInicial);
+  const [sessao, setSessao] = useState(undefined); // undefined = carregando
+
+  // Verifica sessão inicial e escuta mudanças de auth
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSessao(session);
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSessao(session);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   const todosAfundados =
     state.jogo != null &&
@@ -241,8 +255,30 @@ export default function App() {
     }
   }, [state.tela, todosAfundados]);
 
+  // Ainda verificando sessão
+  if (sessao === undefined) return null;
+
+  // Sem sessão → tela de login
+  if (!sessao) return <TelaLogin />;
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+  }
+
   return (
     <div className="app">
+      <button
+        onClick={handleLogout}
+        style={{
+          position: 'fixed', top: 12, right: 16, zIndex: 1100,
+          background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)',
+          color: '#90b8d8', padding: '6px 14px', borderRadius: '8px',
+          fontSize: '0.78rem', cursor: 'pointer', backdropFilter: 'blur(4px)',
+        }}
+      >
+        Sair
+      </button>
+
       {state.tela === 'configuracao' && (
         <TelaConfiguracao
           naviosPosicionados={state.naviosPosicionados}

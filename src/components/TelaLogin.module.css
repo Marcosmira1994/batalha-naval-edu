@@ -1,0 +1,163 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #020b18 0%, #0a1628 50%, #071020 100%);
+}
+
+.card {
+  background: rgba(13, 45, 94, 0.7);
+  border: 1px solid rgba(45, 125, 210, 0.3);
+  border-radius: 24px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  animation: entrar 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.logo {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 6px;
+  letter-spacing: 1px;
+}
+
+.subtitulo {
+  font-size: 0.88rem;
+  color: #90b8d8;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.erro {
+  background: rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(230, 57, 70, 0.4);
+  color: #f87171;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.83rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.sucesso {
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  color: #4ade80;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.83rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #90b8d8;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  background: rgba(10, 22, 40, 0.6);
+  border: 1px solid rgba(45, 125, 210, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #3a5a7a;
+}
+
+.input:focus {
+  border-color: #2d7dd2;
+  box-shadow: 0 0 0 3px rgba(45, 125, 210, 0.2);
+}
+
+.btnEntrar {
+  margin-top: 8px;
+  background: linear-gradient(135deg, #2d7dd2, #1a5fa8);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+  letter-spacing: 0.5px;
+}
+
+.btnEntrar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 125, 210, 0.4);
+}
+
+.btnEntrar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.alternar {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #607090;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: #60a5fa;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.linkBtn:hover {
+  color: #93c5fd;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 36px 24px;
+  }
+}
